@@ -18,17 +18,31 @@ class ColumnView extends StatelessWidget {
             flex: 2,
           ),
           Expanded(
-              flex: 2,
-              child: Container(
-                color: Colors.blue,
-              )),
-          Expanded(
-              flex: 2,
-              child: Container(
-                color: Colors.teal,
-              )),
+            flex: 2,
+            child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text("a"),
+                  Text("b"),
+                  Text("c"),
+                ]),
+          ),
+          SizedBox(
+            height: MyContainerSizes.cardHeight,
+            child: Column(children: [
+              Expanded(child: Text("data")),
+              Expanded(child: Text("data")),
+              Expanded(child: Text("data")),
+              Expanded(child: Text("data")),
+            ]),
+          )
         ],
       ),
     );
   }
+}
+
+class MyContainerSizes {
+  static const double cardHeight = 200;
 }
