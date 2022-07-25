@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sample/product/language/language_items.dart';
 
 class TextFieldView extends StatefulWidget {
   const TextFieldView({Key? key}) : super(key: key);
@@ -9,13 +10,11 @@ class TextFieldView extends StatefulWidget {
 }
 
 class _TextFieldViewState extends State<TextFieldView> {
-
-  FocusNode focusNodeTextField1= FocusNode();
-  FocusNode focusNodeTextField2= FocusNode();
-
-
+  FocusNode focusNodeTextField1 = FocusNode();
+  FocusNode focusNodeTextField2 = FocusNode();
 
   final key = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +22,6 @@ class _TextFieldViewState extends State<TextFieldView> {
       body: Column(
         children: [
           TextField(
-
               buildCounter: (
                 BuildContext context, {
                 int? currentLength,
@@ -31,7 +29,6 @@ class _TextFieldViewState extends State<TextFieldView> {
                 bool? isFocused,
               }) {
                 return _animatedContainer(currentLength);
-
 
                 // return AnimatedContainer(
                 //   key: UniqueKey(),
@@ -56,11 +53,10 @@ class _TextFieldViewState extends State<TextFieldView> {
               autofillHints: [AutofillHints.email],
               inputFormatters: [TextProjectInputFormater().textFormatter],
               maxLength: 20,
-              decoration: InputDecoration(
-                  prefix: Icon(Icons.mail),
-                  border: OutlineInputBorder(),
-                  labelText: "Mail")),
-          TextField(focusNode: focusNodeTextField2,)
+              decoration: TextInputDearotor().emailInput),
+          TextField(
+            focusNode: focusNodeTextField2,
+          )
         ],
       ),
     );
@@ -68,19 +64,27 @@ class _TextFieldViewState extends State<TextFieldView> {
 
   AnimatedContainer _animatedContainer(int? currentLength) {
     return AnimatedContainer(
-            key: key,
-            duration: Duration(seconds: 1),
-            height: 10,
-            width: 10.0*(currentLength ?? 0),
-            color: Colors.green,
-          );
+      key: key,
+      duration: Duration(seconds: 1),
+      height: 10,
+      width: 10.0 * (currentLength ?? 0),
+      color: Colors.green,
+    );
   }
 }
-class TextProjectInputFormater{
- final textFormatter = TextInputFormatter.withFunction((oldValue, newValue) {
-   if(oldValue.text=="a"){
-     return newValue;
-   }
-   return newValue;
- });
+
+class TextProjectInputFormater {
+  final textFormatter = TextInputFormatter.withFunction((oldValue, newValue) {
+    if (oldValue.text == "a") {
+      return newValue;
+    }
+    return newValue;
+  });
+}
+
+class TextInputDearotor {
+  final emailInput = InputDecoration(
+      prefix: Icon(Icons.mail),
+      border: OutlineInputBorder(),
+      labelText: LanguageItems.mailTitle);
 }

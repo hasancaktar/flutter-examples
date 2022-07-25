@@ -36,7 +36,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+
       theme: ThemeData.dark().copyWith(
+        textTheme: TextTheme(subtitle1: TextStyle(color: Colors.black)),
+          inputDecorationTheme: InputDecorationTheme(
+
+              filled: true,
+              iconColor: Colors.red,
+              border: OutlineInputBorder(),
+              fillColor: Colors.blue[200],
+              floatingLabelStyle: TextStyle(
+                  color: Colors.red,
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500,
+              ),labelStyle:TextStyle(
+            color: Colors.red,
+            fontSize: 25,
+            fontWeight: FontWeight.w500,
+          ) ),
           listTileTheme: ListTileThemeData(contentPadding: EdgeInsets.zero),
           progressIndicatorTheme:
               ProgressIndicatorThemeData(color: Colors.white),
