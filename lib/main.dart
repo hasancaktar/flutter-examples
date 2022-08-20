@@ -9,9 +9,15 @@ import 'package:sample/card.dart';
 import 'package:sample/column_row_widget.dart';
 import 'package:sample/container_sized_box.dart';
 import 'package:sample/custom_widget.dart';
+import 'package:sample/demo/color_demos_view.dart';
+import 'package:sample/demo/color_life_cycle.dart';
+import 'package:sample/demo/my_collection_demo.dart';
 import 'package:sample/demo/stack_demo_card.dart';
 import 'package:sample/image.dart';
 import 'package:sample/indicator.dart';
+import 'package:sample/listview.dart';
+import 'package:sample/listview_builder.dart';
+import 'package:sample/navigation.dart';
 import 'package:sample/padding.dart';
 import 'package:sample/page_view.dart';
 import 'package:sample/sample_screen.dart';
@@ -45,11 +51,11 @@ class MyApp extends StatelessWidget {
               iconColor: Colors.red,
               border: OutlineInputBorder(),
               fillColor: Colors.blue[200],
-              floatingLabelStyle: TextStyle(
+              floatingLabelStyle: const TextStyle(
                   color: Colors.red,
                   fontSize: 25,
                   fontWeight: FontWeight.w500,
-              ),labelStyle:TextStyle(
+              ),labelStyle:const TextStyle(
             color: Colors.red,
             fontSize: 25,
             fontWeight: FontWeight.w500,
@@ -67,7 +73,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: 0,
           )),
-      home: TextFieldView(),
+      home: NavigationView(),
     );
   }
 }
